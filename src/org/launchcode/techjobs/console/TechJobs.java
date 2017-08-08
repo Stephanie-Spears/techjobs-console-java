@@ -115,13 +115,19 @@ public class TechJobs {
 //*ArrayList converts everything inside of it into an object, as opposed to arrays which can contain both primitive data types as well as object classes. However, arraylist allows for vector-like dynamic sizing, whereas array size must be declared at initialization. Array may be accessed via index[] notation, while arraylist has a set of methods which act upon it.
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
-        for(HashMap<String, String> job : someJobs) {
-            System.out.println("*****");
-            ArrayList<String> keys = new ArrayList<>(job.keySet());
-            for (String key : keys) {
-                System.out.println(key + ": " + job.get(key));
-            }
-            System.out.println("*****\n");
+        if (someJobs.isEmpty()){
+            System.out.println("Listing not found.");
         }
+        else{
+            for(HashMap<String, String> job : someJobs) {
+                System.out.println("*****");
+                ArrayList<String> keys = new ArrayList<>(job.keySet());
+                for (String key : keys) {
+                    System.out.println(key + ": " + job.get(key));
+                }
+                System.out.println("*****\n");
+            }
+        }
+
     }
 }
